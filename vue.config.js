@@ -24,7 +24,7 @@ module.exports = {
     configureWebpack: {
         resolve: {
             alias: {
-                '@': resolve('src/main/web')
+                '@': resolve('src/main/web2')
             }
         },
         plugins: [
@@ -33,7 +33,7 @@ module.exports = {
                 to: 'monaco-editor/min'
             }, {
                 from: './node_modules/monaco-editor/min-maps',
-                to: 'monaco-editor/0.11.1/min-maps'
+                to: 'monaco-editor/0.14.2/min-maps'
             }, {
                 from: './src/main/web/statics/fontawesome-free-5.0.10',
                 to: 'fontawesome-free-5.0.10/'
@@ -46,8 +46,8 @@ module.exports = {
     runtimeCompiler: true,
     pages: {
         index: {
-            entry: 'src/main/web/index.js',
-            template: 'src/main/web/templates/index.html',
+            entry: 'src/main/web2/index.js',
+            template: 'src/main/web2/templates/index.html',
             filename: 'index.html'
         },
         oai: {

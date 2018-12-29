@@ -27,26 +27,33 @@ const routes = [
         component: (r) => require(["@/pages/Dashboard.vue"], r),
         children: [
             {
-                path: "/apps", meta: {title: "配置列表"},
-                component: (r) => require(['@/pages/apps/Apps.vue'], r)
-            },
-            {
-                path: "/app-histories", meta: {title: "配置修改历史记录"},
-                component: (r) => require(['@/pages/apps/AppHistory.vue'], r)
-            },
-            {
-                path: "/users", meta: {title: "用户列表"},
-                component: (r) => require(['@/pages/users/Users.vue'], r)
-            },
-            {
-                path: "/clusters", meta: {title: "集群状态"},
-                component: (r) => require(['@/pages/servers/Servers.vue'], r)
-            },
-            {
-                path: "/api-test", meta: {title: "配置 API 测试"},
-                component: (r) => require(['@/pages/ApiTest.vue'], r)
+                path: "/apps/content-edit",
+                meta: {title: "编辑配置"},
+                component: (r) => require(['@/pages/apps/AppContentEdit.vue'], r)
             }
         ]
+        // children: [
+        //     {
+        //         path: "/apps", meta: {title: "配置列表"},
+        //         component: (r) => require(['@/pages/apps/Apps.vue'], r)
+        //     },
+        //     {
+        //         path: "/app-histories", meta: {title: "配置修改历史记录"},
+        //         component: (r) => require(['@/pages/apps/AppHistory.vue'], r)
+        //     },
+        //     {
+        //         path: "/users", meta: {title: "用户列表"},
+        //         component: (r) => require(['@/pages/users/Users.vue'], r)
+        //     },
+        //     {
+        //         path: "/clusters", meta: {title: "集群列表"},
+        //         component: (r) => require(['@/pages/servers/Servers.vue'], r)
+        //     },
+        //     {
+        //         path: "/api-test", meta: {title: "接口测试"},
+        //         component: (r) => require(['@/pages/ApiTest.vue'], r)
+        //     }
+        // ]
     }
 ]
 

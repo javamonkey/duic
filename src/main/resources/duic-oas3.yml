@@ -16,7 +16,7 @@ tags:
   - name: system
     description: 系统接口
   - name: apps
-    description: APP 配置应用 API
+    description: 配置 API
   - name: spring-cloud
     description: spring-cloud 配置 API
 paths:

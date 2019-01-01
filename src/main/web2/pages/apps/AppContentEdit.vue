@@ -1,33 +1,76 @@
 <template>
-  <v-container style="transform: translate(0,0)">
-    <div class="list-apps">
-      Left Menus
-    </div>
+  <v-container fluid grid-list-md>
+    <v-layout row wrap>
+      <!-- 左边配置列表选择区域 -->
+      <v-flex d-flex xs12 sm12 md2>
+        <v-card class="left-apps">
+          <v-toolbar dark>
+            <v-text-field append-icon="search">
+            </v-text-field>
+          </v-toolbar>
+          <v-list>
+            <v-list-tile @click="">
+              <v-list-tile-content>
+                <v-list-tile-title>meme</v-list-tile-title>
+                <v-list-tile-sub-title>dev</v-list-tile-sub-title>
+              </v-list-tile-content>
 
-    <v-layout>
-      <v-flex
-        d-flex
-        xs12
-      >
-        <div
-          ref="codeEditor"
-          class="editor"
-        />
+              <v-list-tile-action>
+                <v-btn icon ripple>
+                  <v-icon color="grey lighten-1">info</v-icon>
+                </v-btn>
+              </v-list-tile-action>
+            </v-list-tile>
+            <v-list-tile @click="">
+              <v-list-tile-content>
+                <v-list-tile-title>meme</v-list-tile-title>
+                <v-list-tile-sub-title>dev</v-list-tile-sub-title>
+              </v-list-tile-content>
+              <v-list-tile-action>
+                <v-btn icon ripple>
+                  <v-icon color="grey lighten-1">info</v-icon>
+                </v-btn>
+              </v-list-tile-action>
+            </v-list-tile>
+            <v-list-tile @click="">
+              <v-list-tile-content>
+                <v-list-tile-title>meme</v-list-tile-title>
+                <v-list-tile-sub-title>dev</v-list-tile-sub-title>
+              </v-list-tile-content>
+              <v-list-tile-action>
+                <v-btn icon ripple>
+                  <v-icon color="grey lighten-1">info</v-icon>
+                </v-btn>
+              </v-list-tile-action>
+            </v-list-tile>
 
+          </v-list>
+        </v-card>
+      </v-flex>
+
+      <!-- 右边操作区域 -->
+      <v-flex d-flex xs12 sm12 md10>
+        <v-layout row wrap>
+          <!-- 按钮操作区域 -->
+          <v-flex d-flex xs12>
+            <v-card class="ops-area">
+              <div style="float: left">
+                INFO
+              </div>
+              <div style="float: right">
+                <v-btn color="success">保存</v-btn>
+              </div>
+            </v-card>
+          </v-flex>
+
+          <!-- 编辑区域 -->
+          <v-flex d-flex xs12>
+            <div class="editor" ref="codeEditor"/>
+          </v-flex>
+        </v-layout>
       </v-flex>
     </v-layout>
   </v-container>
-
-  <!--<div>-->
-  <!--<div>-->
-  <!--Left Menus-->
-  <!--</div>-->
-
-  <!--<div-->
-  <!--ref="codeEditor"-->
-  <!--class="editor"-->
-  <!--/>-->
-  <!--</div>-->
 </template>
 
 <script>
@@ -64,18 +107,15 @@
 </script>
 
 <style lang="stylus" scoped>
-  .editor
-    height calc(100vh - 60px - 48px)
-    width 100%
+  .left-apps
+    height calc(100vh - 60px - 48px - 4px)
 
-  .list-apps
-    position fixed
-    left -250px
-    top 0
-    width 250px
-    height 100%
-    background red
-    padding 24px 0
+  .ops-area
+    height 48px
+
+  .editor
+    height calc(100vh - 60px - 48px - 48px - 8px - 8px)
+    width 100%
     box-sizing border-box
 
 </style>

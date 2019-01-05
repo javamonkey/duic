@@ -24,7 +24,7 @@ module.exports = {
     configureWebpack: {
         resolve: {
             alias: {
-                '@': resolve('src/main/web2')
+                '@': resolve('src/main/web')
             }
         },
         plugins: [
@@ -46,8 +46,8 @@ module.exports = {
     runtimeCompiler: true,
     pages: {
         index: {
-            entry: 'src/main/web2/index.js',
-            template: 'src/main/web2/templates/index.html',
+            entry: 'src/main/web/index.js',
+            template: 'src/main/web/templates/index.html',
             filename: 'index.html'
         },
         oai: {

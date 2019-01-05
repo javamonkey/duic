@@ -1,18 +1,3 @@
-/*
- * Copyright 2017-2018 the original author or authors
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *     http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Vuetify from 'vuetify'
@@ -20,16 +5,20 @@ import VueClipboard from 'vue-clipboard2'
 // ===================================================================================================
 import 'vuetify/dist/vuetify.css'
 
-import {router} from './router/index'
-import {store} from "./store/index"
 import Main from './pages/Main.vue'
 // ===================================================================================================
 import axios from 'axios'
+// ===================================================================================================
+import {router} from './router/index'
+import {store} from "./store/index"
 
 Vue.use(VueRouter)
 Vue.use(Vuetify)
 Vue.use(VueClipboard)
 
+/**
+ * 初始化 Vue。
+ */
 new Vue({
     el: "#app",
     render: h => h(Main),
@@ -37,6 +26,9 @@ new Vue({
     store
 })
 
+/**
+ * 增加 axios 拦截器。
+ */
 axios.interceptors.response.use((response) => {
     return response
 }, (error) => {
@@ -46,6 +38,7 @@ axios.interceptors.response.use((response) => {
             store.commit('loginState', false)
         }
     } else {
+        console.error(error)
         alert('连接超时，请重试')
     }
     return Promise.reject(error)

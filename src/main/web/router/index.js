@@ -31,6 +31,11 @@ const routes = [
                 component: (r) => require(['@/pages/apps/Apps.vue'], r)
             },
             {
+                path: "/apps/content-edit",
+                meta: {title: "编辑配置"},
+                component: (r) => require(['@/pages/apps/AppContentEdit.vue'], r)
+            },
+            {
                 path: "/app-histories", meta: {title: "配置修改历史记录"},
                 component: (r) => require(['@/pages/apps/AppHistory.vue'], r)
             },
@@ -39,11 +44,11 @@ const routes = [
                 component: (r) => require(['@/pages/users/Users.vue'], r)
             },
             {
-                path: "/clusters", meta: {title: "集群状态"},
+                path: "/clusters", meta: {title: "集群列表"},
                 component: (r) => require(['@/pages/servers/Servers.vue'], r)
             },
             {
-                path: "/api-test", meta: {title: "配置 API 测试"},
+                path: "/api-test", meta: {title: "接口测试"},
                 component: (r) => require(['@/pages/ApiTest.vue'], r)
             }
         ]
@@ -52,7 +57,7 @@ const routes = [
 
 export const router = new VueRouter({routes})
 router.beforeEach((to, from, next) => {
-    let title = to.meta.title || 'DuiC 配置中心控制台'
+    let title = to.meta.title || 'DuiC 配置中心'
     document.title = title
     next()
 })

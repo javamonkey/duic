@@ -22,6 +22,8 @@ buildscript {
 }
 
 plugins {
+    id "io.spring.dependency-management" version "1.0.7.RELEASE"
+    id "com.github.johnrengelman.shadow" version "5.0.0"
     id "net.researchgate.release" version "2.6.0"
     id "com.moowork.node" version "1.2.0"
     id "net.ltgt.apt" version "0.10"
@@ -43,13 +45,28 @@ group "io.zhudy.duic"
 repositories {
     mavenLocal()
     mavenCentral()
+    maven {
+        url "https://repo.spring.io/snapshot"
+    }
+}
+
+dependencyManagement {
+    imports {
+        mavenBom "io.projectreactor:reactor-bom:Californium-SR6"
+        mavenBom "io.helidon:helidon-bom:1.0.3"
+        mavenBom "com.google.inject:guice-bom:4.2.2"
+        mavenBom "io.r2dbc:r2dbc-bom:1.0.0.BUILD-SNAPSHOT"
+    }
 }
 
 dependencies {
     compile "org.jetbrains.kotlin:kotlin-stdlib"
     compile "org.jetbrains.kotlin:kotlin-reflect"
     compile "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.1.0"
-    
+
+
+    compile "io.helidon.config:helidon-config-yaml"
+
     compile "com.github.ben-manes.caffeine:caffeine:2.6.2"
     compile "io.github.resilience4j:resilience4j-ratelimiter:0.13.2"
     compile "io.github.resilience4j:resilience4j-reactor:0.13.2"
